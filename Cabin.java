@@ -45,14 +45,42 @@ public class Cabin {
         pricePrDay = cabinPricePrDay;
     }
     
+    public void clearPricePrDay() {
+        pricePrDay = 0;
+    }
+    
     //Conditional statements
     public void priceForRent(int personUsingCabin, int daysUsingCabin) {
         pricePrDay += 200 / daysUsingCabin;
         if(personUsingCabin > noOfBeds) {
             pricePrDay += (personUsingCabin - noOfBeds)*50;
         }
-        
+        if(buildingYear < 1950) {
+            pricePrDay -= 200 / daysUsingCabin;
+        }
+        if(daysUsingCabin > 7) {
+            pricePrDay -= 100 / daysUsingCabin;
+        }        
     }
     
     //Accessor methods
+      public int getBuildingYear() {
+        return buildingYear;
+    }
+    
+    public int getNoOfBeds() {
+        return noOfBeds;
+    }
+    
+    public int getNoOfRooms() {
+        return noOfRooms;
+    }
+    
+    public int getSquareMeter() {
+        return squareMeter;
+    }
+    
+    public int getPricePrDay() {
+        return pricePrDay;
+    }
 }
